@@ -61,30 +61,30 @@ class EmptyProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor:  const Color.fromARGB(255, 243, 243, 243),
-      body: Center(
-      child: GestureDetector(
-        onTap: onLogin,
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 25),
-          height: 50,
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 195, 160, 20),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: const Center(
-            child: Text(
-              "Masuk",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+        backgroundColor: const Color.fromARGB(255, 243, 243, 243),
+        body: Center(
+          child: GestureDetector(
+            onTap: onLogin,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 25),
+              height: 50,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 195, 160, 20),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Center(
+                child: Text(
+                  "Masuk",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 }
 
@@ -98,89 +98,103 @@ class FilledProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor:  const Color.fromARGB(255, 243, 243, 243),
-      body: Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Column(
+        backgroundColor: const Color.fromARGB(255, 243, 243, 243),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "NIJ",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "NIJ",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(userInfo[0], style: const TextStyle(fontSize: 16)),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Nama Lengkap",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(userInfo[1], style: const TextStyle(fontSize: 16)),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Nomor Telepon",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(userInfo[2], style: const TextStyle(fontSize: 16)),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Tanggal Lahir",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(userInfo[3], style: const TextStyle(fontSize: 16)),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Email",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(userInfo[4], style: const TextStyle(fontSize: 16)),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Jenis Kelamin",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(userInfo[5] == "1" ? "Pria" : "Wanita",
+                      style: const TextStyle(fontSize: 16)),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Email",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(userInfo[4], style: const TextStyle(fontSize: 16)),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Golongan Darah",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
+                  Text(userInfo[6], style: const TextStyle(fontSize: 16))
+                ],
               ),
-              Text(userInfo[0], style: const TextStyle(fontSize: 16)),
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "Nama Lengkap",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-              ),
-              Text(userInfo[1], style: const TextStyle(fontSize: 16)),
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "Nomor Telepon",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-              ),
-              Text(userInfo[2], style: const TextStyle(fontSize: 16)),
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "Tanggal Lahir",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-              ),
-              Text(userInfo[3], style: const TextStyle(fontSize: 16)),
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "Email",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-              ),
-              Text(userInfo[4], style: const TextStyle(fontSize: 16)),
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "Jenis Kelamin",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-              ),
-              Text(userInfo[5] == "1" ? "Pria" : "Wanita",
-                  style: const TextStyle(fontSize: 16)),
-            ],
-          ),
-          GestureDetector(
-            onTap: onLogout,
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 25),
-              height: 40,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(7),
-              ),
-              child: const Center(
-                child: Text(
-                  "Log Out",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+              GestureDetector(
+                onTap: onLogout,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 25),
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Log Out",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
-    )
-    )
-    ;
+        ));
   }
 }

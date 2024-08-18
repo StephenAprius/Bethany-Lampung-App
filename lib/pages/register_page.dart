@@ -30,7 +30,8 @@ class _RegisterPageState extends State<RegisterPage> {
       userField = "",
       nomorField = "",
       passwordField = "",
-      conPasswordField = "";
+      conPasswordField = "",
+      kategori = "Unknown";
 
   int gender = 1;
 
@@ -270,6 +271,48 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
 
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 25),
+                        child: Row(
+                          children: [Text("Golongan Darah")],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                        child: DropdownButton(
+                          dropdownColor: Colors.white,
+                          items: const [
+                            DropdownMenuItem(
+                              value: "Unknown",
+                              child: Text('Tidak Tahu'),
+                            ),
+                            DropdownMenuItem(
+                              value: "A",
+                              child: Text('A'),
+                            ),
+                            DropdownMenuItem(
+                              value: "AB",
+                              child: Text('AB'),
+                            ),
+                            DropdownMenuItem(
+                              value: "B",
+                              child: Text('B'),
+                            ),
+                            DropdownMenuItem(
+                              value: "O",
+                              child: Text('O'),
+                            ),
+                          ],
+                          value: kategori,
+                          onChanged: (value) {
+                            setState(() {
+                              kategori = value!;
+                            });
+                          },
+                          isExpanded: true,
+                        ),
+                      ),
+
                       // forgot password
                       const SizedBox(
                         height: 20,
@@ -320,6 +363,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   "Email": emailController.text,
                                   "Password": passwordController.text,
                                   "Gender": gender.toString(),
+                                  "Blood_Type": kategori,
                                   "Created_By": "User",
                                 });
 
@@ -335,6 +379,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                       response["data"]["Born_Date"];
                                   String email = response["data"]["Email"];
                                   String gender = response["data"]["Gender"];
+                                  String bloodType =
+                                      response["data"]["Blood_Type"];
                                   final prefs =
                                       await SharedPreferences.getInstance();
                                   await prefs.setStringList(
@@ -344,7 +390,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                     phoneNumber,
                                     bornDate,
                                     email,
-                                    gender
+                                    gender,
+                                    bloodType
                                   ]);
 
                                   ScaffoldMessenger.of(context).showSnackBar(

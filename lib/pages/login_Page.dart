@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
           return false;
         },
         child: Scaffold(
-           backgroundColor:  const Color.fromARGB(255, 243, 243, 243),
+          backgroundColor: const Color.fromARGB(255, 243, 243, 243),
           body: SafeArea(
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       const SizedBox(height: 20),
                       //Welcome back, you've been missed!
-                     const  Text(
+                      const Text(
                         'Masuk ke gereja Bethany Lampung app',
                         style: TextStyle(
                           color: const Color.fromARGB(255, 0, 0, 0),
@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.all(15),
                           margin: const EdgeInsets.symmetric(horizontal: 25),
                           decoration: BoxDecoration(
-                           color: const Color.fromARGB(255, 195, 160, 20),
+                              color: const Color.fromARGB(255, 195, 160, 20),
                               borderRadius: BorderRadius.circular(8)),
                           child: const Center(
                               child: Text(
@@ -158,6 +158,8 @@ class _LoginPageState extends State<LoginPage> {
                                 String bornDate = response["data"]["Born_Date"];
                                 String email = response["data"]["Email"];
                                 String gender = response["data"]["Gender"];
+                                String bloodType =
+                                    response["data"]["Blood_Type"];
                                 final prefs =
                                     await SharedPreferences.getInstance();
                                 await prefs.setStringList('userInfo', <String>[
@@ -166,7 +168,8 @@ class _LoginPageState extends State<LoginPage> {
                                   phoneNumber,
                                   bornDate,
                                   email,
-                                  gender
+                                  gender,
+                                  bloodType
                                 ]);
 
                                 ScaffoldMessenger.of(context).showSnackBar(
